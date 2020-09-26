@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">						FUNCION PARA MOSTRAR CONTENIDO DE OTRA VISTA SIN RECARGAR LA PAGINA
 	$(document).ready(function() {
 		$('#btn1').on('click', function() {
 			$.ajax({
@@ -25,61 +26,36 @@
 				}
 			});
 		});
-		$('#btn3').on('click', function() {
-			$.ajax({
-				type : "POST",
-				url : "login.jsp",
-				success : function(response) {
-					$('#div-results').html(response);
-				}
-			});
-		});
-		$('#btn4').on('click', function() {
-			$.ajax({
-				type : "POST",
-				url : "login.jsp",
-				success : function(response) {
-					$('#div-results').html(response);
-				}
-			});
-		});
-		$('#btn5').on('click', function() {
-			$.ajax({
-				type : "POST",
-				url : "login.jsp",
-				success : function(response) {
-					$('#div-results').html(response);
-				}
-			});
-		});
-		$('#btn6').on('click', function() {
-			$.ajax({
-				type : "POST",
-				url : "login.jsp",
-				success : function(response) {
-					$('#div-results').html(response);
-				}
-			});
-		});
-		$('#btn7').on('click', function() {
-			$.ajax({
-				type : "POST",
-				url : "login.jsp",
-				success : function(response) {
-					$('#div-results').html(response);
-				}
-			});
-		});
-		$('#btn8').on('click', function() {
-			$.ajax({
-				type : "POST",
-				url : "login.jsp",
-				success : function(response) {
-					$('#div-results').html(response);
-				}
-			});
-		});
+		
+		
 	});
+</script> -->
+<script type="text/javascript">
+	function mostrarNoLoSigo(){ 
+   document.getElementById('noLoSigo').style.display = 'block';
+   
+   document.getElementById('noMeSigue').style.display = 'none';
+   document.getElementById('mutuos').style.display = 'none';
+	
+	
+	}   
+	function mostrarNoMeSigue(){ 
+		   document.getElementById('noLoSigo').style.display = 'none';
+		   
+		   document.getElementById('noMeSigue').style.display = 'block';
+		   document.getElementById('mutuos').style.display = 'none';
+			
+			
+			}   
+	function mostrarMutuos(){ 
+		   document.getElementById('noLoSigo').style.display = 'none';
+		   
+		   document.getElementById('noMeSigue').style.display = 'none';
+		   document.getElementById('mutuos').style.display = 'block';
+			
+			
+			}   
+
 </script>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet"
@@ -100,19 +76,19 @@
 
 
 
-	<!-- <div class="menuDesplegable">
+	 <div class="menuDesplegable">
 
 		<ol style="list-style:none;">
-			<li><a href="#" id="btn1" class="list-group-item list-group-item-action bg-light"> Resumen de tu cuenta </a></li>
-			<li><a href="#"class="list-group-item list-group-item-action bg-light"> Quien no me sigue</a></li>
-			<li><a href=" "class="list-group-item list-group-item-action bg-light">A quien no sigo</a></li>
-			<li><a href=" "class="list-group-item list-group-item-action bg-light">Seguidores mutuos</a></li>
-			<li><a href=" "class="list-group-item list-group-item-action bg-light">Lista de seguidos </a></li>
-			<li><a href=" "class="list-group-item list-group-item-action bg-light"> Lista de seguidores </a></li>
-			<li><a href=" "class="list-group-item list-group-item-action bg-light"> Comparador de seguidores </a></li>
-			<li><a href=" "class="list-group-item list-group-item-action bg-light"> Comparador de seguidores </a></li>
+			<li><a href="" onclick="" class="list-group-item list-group-item-action bg-light"> Resumen de tu cuenta </a></li>
+			<li><button onclick="mostrarNoMeSigue()" class="list-group-item list-group-item-action bg-light"> Quien no me sigue</button></li>
+			<li><a onclick="mostrarNoLoSigo()"class="list-group-item list-group-item-action bg-light">A quien no sigo</a></li>
+			<li><a onclick="mostrarMutuos()"class="list-group-item list-group-item-action bg-light">Seguidores mutuos</a></li>
+			<li><a href=""id="btn5"class="list-group-item list-group-item-action bg-light">Lista de seguidos </a></li>
+			<li><a href=""id="btn6"class="list-group-item list-group-item-action bg-light"> Lista de seguidores </a></li>
+			<li><a href=""id="btn7"class="list-group-item list-group-item-action bg-light"> Comparador de seguidores </a></li>
+			<li><a href=""id="btn8"class="list-group-item list-group-item-action bg-light"> Comparador de seguidores </a></li>
 		</ol>
-	</div> -->
+	</div> 
 
 	<div class="contenidoCentro">
 		<div class="datosCentro">
@@ -136,7 +112,7 @@
 
 			</form>
 			<%
-			String error = (String) request.getAttribute("errorFormato");
+				String error = (String) request.getAttribute("errorFormato");
 			if (error != null) {
 
 				out.print(String.format("<p> %s</p>", error));
@@ -144,14 +120,51 @@
 			%>
 
 
-			<!--  </div>
-	<div class="botonesCentro"><button type="button" class="btn btn-primary">Aceptar</button><button type="button" class="btn btn-danger">Cancelar</button></div>
+		</div>
+		<!-- <div class="botonesCentro"><button type="button" class="btn btn-primary">Aceptar</button><button type="button" class="btn btn-danger">Cancelar</button></div>
+	 -->
+	</div>
 	
-	</div> -->
+	<div id="noMeSigue" style="display: none">
+	<ol>NO ME SIGUEN:<c:forEach var="user" items="${noMeSigue}" >
+  <li> ${user} </li>
+</c:forEach></ol>
+</div>
 
-			<!-- <a class="btn btn-success" id="btn1">Ver el archivo que contiene hola</a> 
+<div id="noLoSigo" style="display: none">
+<ol>NO LOS SIGO:<c:forEach var="user" items="${noLoSigo}" >
+  <li> ${user} </li>
+</c:forEach></ol>
+</div>
+
+<div id="mutuos" style="display: none">
+<ol>MUTUOS:<c:forEach var="user" items="${mutuos}" >
+  <li> ${user} </li>
+</c:forEach></ol>
+</div>
+	<!-- <a class="btn btn-success" id="btn1">Ver el archivo que contiene hola</a> 
 <a class="btn btn-danger" id="btn2">Ver el archivo que contiene adios</a>
 <div id="div-results"></div>
  -->
+
+
+<%-- Para enviar al login si el usuario no tiene una sesion abierta
+	<%
+		HttpSession misession = (HttpSession) request.getSession();
+	Object miUsuario = (Object) misession.getAttribute("usuario");
+	%>
+	<%
+		if (miUsuario == null) {
+	%>
+	<script type="text/javascript">
+		location.href = "login.jsp";
+	</script>
+	<%
+		response.sendRedirect("login.jsp");
+	%>
+	<%
+		}
+	%> --%>
+	
 </body>
 </html>
