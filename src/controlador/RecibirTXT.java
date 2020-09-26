@@ -26,6 +26,7 @@ public class RecibirTXT extends HttpServlet {
 		List<String> mutuos = new ArrayList<String>();
 		List<String> noMeSigue = new ArrayList<String>();
 		List<String> noLoSigo = new ArrayList<String>();
+		
 		String seguidores = request.getParameter("seguidoresTXT"); // Recibo el textArea
 		String seguidos = request.getParameter("seguidosTXT");
 
@@ -40,7 +41,8 @@ public class RecibirTXT extends HttpServlet {
 																							// (los demás datos que no
 																							// sirven son eliminados)
 
-			for (int i = 0; i < listaSoloSeguidos.size() - 1; i++) {
+			
+			for (int i = 0; i < listaSoloSeguidos.size() - 1; i++) {		// crea la lista de mutuos y noMeSigue
 
 				String seguido = listaSoloSeguidos.get(i);
 				if (listaSoloSeguidores.contains(seguido)) {
@@ -53,7 +55,7 @@ public class RecibirTXT extends HttpServlet {
 
 			}
 
-			for (int i = 0; i < listaSoloSeguidores.size() - 1; i++) {
+			for (int i = 0; i < listaSoloSeguidores.size() - 1; i++) {		//crea la lista de noLoSigo
 				String seguidor = listaSoloSeguidores.get(i);
 				if (listaSoloSeguidos.contains(seguidor)) {
 
@@ -64,9 +66,7 @@ public class RecibirTXT extends HttpServlet {
 				}
 			}
 
-//		System.out.println("-.-.-.-.-.-.-.-.-.-.-.-.-.-.--.-.-.-.-.-.-.");
-//		System.out.println("Tienes "+listaSoloSeguidores.size()+" seguidores");
-//		System.out.println("Tienes "+listaSoloSeguidos.size()+" seguidos");
+
 
 			request.setAttribute("seguidores", listaSoloSeguidos); // A la variable seguidores, le paso la lista de
 																	// seguidores"
@@ -76,14 +76,16 @@ public class RecibirTXT extends HttpServlet {
 			request.setAttribute("noMeSigue", noMeSigue);
 			request.setAttribute("mutuos", mutuos);
 
-			System.out.println("No sigo a:");
-			System.out.println(noLoSigo);
-			System.out.println("No me siguen:");
-			System.out.println(noMeSigue);
-			System.out.println("Seguidores mutuos:");
-			System.out.println(mutuos);
-		} else {
-			request.setAttribute("errorFormato", "La lista introducida no cumple el formato");
+//			System.out.println("No sigo a:");
+//			System.out.println(noLoSigo);
+//			System.out.println("No me siguen:");
+//			System.out.println(noMeSigue);
+//			System.out.println("Seguidores mutuos:");
+//			System.out.println(mutuos);
+		} else {																			
+			request.setAttribute("errorFormato", "La lista introducida no cumple el formato");// si pongo mal el formato en el textArea, me
+																							// dice que esta mal, y me vuelve a redirigir para
+																							// introducirlo de nuevo
 			System.out.println("La lista introducida no cumple el formato");
 
 		}
