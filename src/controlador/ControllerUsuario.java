@@ -81,7 +81,7 @@ public class ControllerUsuario extends HttpServlet {
 																				//de usuario del formulario del login
 					 
 
-//					request.getRequestDispatcher("App_Instagram//miPerfil.jsp").forward(request, response); //cuando me logueo, voy a "Mi Perfil"
+					request.getRequestDispatcher("/miPerfil.jsp").forward(request, response); //cuando me logueo, voy a "Mi Perfil"
 				} else {
 					System.out.println("Contraseña incorrecta");
 					request.setAttribute("errorLogin", contrasenaIncorrecta);		// A la variable errorLogin, le paso "Contraseña incorrecta"

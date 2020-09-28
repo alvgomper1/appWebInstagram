@@ -33,7 +33,7 @@ public class ControladorSesion extends HttpServlet {
 		if (cerrarSesion!=null && cerrarSesion.equals("true")) { //CERRAR SESION
 			System.out.println("has elegido cerrar sesion");
 			misession.invalidate();
-		    response.sendRedirect("paginaPrincipal.jsp");
+		    response.sendRedirect("login.jsp");
 		}
 		
 		else {
@@ -43,7 +43,7 @@ public class ControladorSesion extends HttpServlet {
 				}
 				
 			
-				request.getRequestDispatcher("/paginaPrincipal.jsp").forward(request, response);
+				request.getRequestDispatcher("/login.jsp").forward(request, response);
 			}
 			else {
 			
