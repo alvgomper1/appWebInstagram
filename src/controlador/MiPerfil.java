@@ -12,11 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import metodos.metodos;
 
-@WebServlet("/RecibirTXT")
-public class RecibirTXT extends HttpServlet {
+@WebServlet("/MiPerfil")
+public class MiPerfil extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	public RecibirTXT() {
+	public MiPerfil() {
 		super();
 
 	}

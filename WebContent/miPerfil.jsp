@@ -12,6 +12,7 @@
 		document.getElementById('seguidores').style.display = 'none';
 		document.getElementById('seguidos').style.display = 'none';
 		document.getElementById('resumen').style.display = 'none';
+		document.getElementById('campoTXT').style.display = 'none';
 
 	}
 	
@@ -61,12 +62,13 @@
 
 
 	<div class="contenidoCentro">
-		<div class="datosCentro">
+	<div class="datosTXT" id="campoTXT">
+	<form action="MiPerfil" method="post">
 
-			<form action="RecibirTXT" method="post">
-
-				<p>Lista de seguidores y seguidos</p>
-
+				<p class="p1">Lista de</p>
+			<p class="p1">seguidores y seguidos</p>
+		
+			<p class="p1">_________________</p> <br> 
 				<p>
 					<textarea required="required" name="seguidoresTXT"
 						placeholder="Pega aquí la lista de seguidores"></textarea>
@@ -86,11 +88,14 @@
 				out.print(String.format("<p> %s</p>", error));
 			}
 			%>
-			</form>
+			</form></div>
+		<div class="datosCentro">
+
+			
 			
 <div id="noMeSigue" style="display: none">
 		<ol>
-			NO ME SIGUEN:
+		<p class="p1" >	NO ME SIGUEN </p><p class="p1">______________</p> <br> 
 			<c:forEach var="user" items="${noMeSigue}">
 				<li>${user}</li>
 			</c:forEach>
@@ -99,7 +104,7 @@
 
 	<div id="noLoSigo" style="display: none">
 		<ol>
-			NO LOS SIGO:
+		<p class="p1" >	NO LOS SIGO </p><p class="p1">______________</p> <br> 
 			<c:forEach var="user" items="${noLoSigo}">
 				<li>${user}</li>
 			</c:forEach>
@@ -108,7 +113,7 @@
 
 	<div id="mutuos" style="display: none">
 		<ol>
-			MUTUOS:
+		<p class="p1" >	MUTUOS </p><p class="p1">______________</p> <br> 
 			<c:forEach var="user" items="${mutuos}">
 				<li>${user}</li>
 			</c:forEach>
@@ -117,7 +122,7 @@
 
 	<div id="seguidos" style="display: none">
 		<ol>
-			SEGUIDOS:
+		<p class="p1" >	SEGUIDOS </p><p class="p1">______________</p> <br> 
 			<c:forEach var="user" items="${seguidos}">
 				<li>${user}</li>
 			</c:forEach>
@@ -126,7 +131,7 @@
 
 	<div id="seguidores" style="display: none">
 		<ol>
-			SEGUIDORES:
+			<p class="p1" > SEGUIDORES </p><p class="p1">______________</p> <br> 
 			<c:forEach var="user" items="${seguidores}">
 				<li>${user}</li>
 			</c:forEach>
@@ -135,7 +140,7 @@
 
 	<div id="resumen" style="display: none">
 		<ol style="list-style: none;">
-			RESUMEN:
+		<p class="p1" >	RESUMEN </p><p class="p1">______________</p> <br> 
 			<li>SEGUIDORES: ${seguidores.size()}</li>
 			<li>SEGUIDOS: ${seguidos.size()}</li>
 			<li>MUTUOS: ${mutuos.size()}</li>
